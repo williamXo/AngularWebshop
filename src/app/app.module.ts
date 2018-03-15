@@ -5,13 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { CartComponent } from './cart/cart.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { MenuComponent } from './menu/menu.component';
-import { ProductComponent } from './product/product.component';
+import { ProductComponent } from './products/product/product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {LayoutModule} from '@angular/cdk/layout';
 import {AppRoutingModule} from './app-routing.module';
@@ -21,7 +21,10 @@ import {  MatButtonModule,
           MatMenuModule,
           MatToolbarModule,
           MatIconModule,
-          MatSidenavModule } from '@angular/material';
+          MatSidenavModule,
+          MatSelectModule,
+          MatInputModule,
+          MatGridListModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import {  MatButtonModule,
     MatSidenavModule,
     MatListModule,
     LayoutModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatInputModule
 
   ],
   providers: [],

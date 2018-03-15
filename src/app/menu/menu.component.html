@@ -1,2 +1,23 @@
 
-<a mat-list-item routerLink=".">Menu item</a>
+  <a mat-list-item routerLink="">Homepage</a>
+  <a mat-list-item routerLink="producten">Producten</a>
+
+<span *ngIf="!isLogedIn">
+  <a mat-list-item routerLink="login">Login</a>
+</span>
+
+
+  <span *ngIf="isAdmin">
+
+  <a mat-list-item routerLink="/">Admin Dashboard</a>
+
+</span>
+
+
+<span *ngIf="isLogedIn">
+  <a mat-list-item routerLink="account">Account</a>
+  <a mat-list-item (click)="logout()">Logout</a>
+</span>
+
+
+
