@@ -7,7 +7,7 @@ export class AuthGuard implements CanActivate {
     private role;
     private username;
 
-    protected debug = false // if debug is true you are allowed on all the pages. without credentials
+    protected debug = false; // if debug is true you are allowed on all the pages. without credentials
     constructor(private router: Router) {
         this.debug = false;
     }

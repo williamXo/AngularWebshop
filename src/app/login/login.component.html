@@ -9,8 +9,8 @@
       <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" name="password" >
       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
     </mat-form-field>
-    <mat-checkbox [(ngModel)]="remember" name="remember">Check me!</mat-checkbox>
-    <button mat-raised-button class="product-button" type="submit">Basic</button>
+    <mat-checkbox [(ngModel)]="remember" name="remember">Remember</mat-checkbox>
+    <button mat-raised-button class="product-button" type="submit">Login</button>
   </mat-card>
 </form>
 </div>
