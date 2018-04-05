@@ -5,8 +5,8 @@ export class Product {
     public title?: string,
     public description?: string,
     public price?: string,
-    public url?: string,
-    public thumbnailUrl?: string,
+    public image?: string,
+    public thumb?: string,
     public stock?: boolean,
     public brand?: string)  {
 

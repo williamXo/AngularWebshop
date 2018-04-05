@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from "../user/user.service";
 
 @Component({
   selector: 'app-menu',
@@ -6,18 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  isLogedIn: boolean;
-  isAdmin: boolean;
-  constructor() {  }
+  constructor(private userService: UserService) {  }
 
   ngOnInit() {
-    this.isLogedIn = true;
-    this.isAdmin = true;
+
   }
 
   logout() {
-    this.isLogedIn = false;
-    this.isAdmin = false;
+    sessionStorage.clear();
+    localStorage.clear();
+    this.userService.restoreLogin();
   }
+
 
 }

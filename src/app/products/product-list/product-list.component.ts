@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Product} from '../product';
 import { HttpClient } from '@angular/common/http';
+import {ProductService} from "../product.service";
 
 @Component({
   selector: 'app-product-list',
@@ -12,7 +13,7 @@ export class ProductListComponent implements OnInit {
 
   productList: Product[];
 
-  constructor(private http: HttpClient) {
+  constructor(private productService: ProductService) {
 
   }
 
@@ -25,7 +26,19 @@ export class ProductListComponent implements OnInit {
   }
 
   public getProductList(): Observable<Product[]> {
-    return this.http.get<Product[]>('https://jsonplaceholder.typicode.com/photos');
+    return this.productService.getAllProducts();
+  }
+
+  public addToCart(id, amount) {
+    let cart = sessionStorage.getItem('cart');
+    const input = id + ',';
+    if (cart === null) {
+      sessionStorage.setItem('cart', id);
+    } else {
+      cart = cart + ',' + id;
+      sessionStorage.setItem('cart', cart);
+    }
+    alert("product added");
   }
 
 }

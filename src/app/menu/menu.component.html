@@ -2,19 +2,19 @@
   <a mat-list-item routerLink="">Homepage</a>
   <a mat-list-item routerLink="producten">Producten</a>
 
-<span *ngIf="!isLogedIn">
+<span *ngIf="!userService.$isLogedIn">
   <a mat-list-item routerLink="login">Login</a>
 </span>
 
 
-  <span *ngIf="isAdmin">
+  <span *ngIf="userService.$isAdmin">
 
   <a mat-list-item routerLink="/">Admin Dashboard</a>
 
 </span>
 
 
-<span *ngIf="isLogedIn">
+<span *ngIf="userService.$isLogedIn">
   <a mat-list-item routerLink="account">Account</a>
   <a mat-list-item (click)="logout()">Logout</a>
 </span>
