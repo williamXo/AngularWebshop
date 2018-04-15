@@ -9,12 +9,13 @@
 
   <span *ngIf="userService.$isAdmin">
 
-  <a mat-list-item routerLink="/">Admin Dashboard</a>
+  <a mat-list-item routerLink="admin">Admin Dashboard</a>
 
 </span>
 
 
 <span *ngIf="userService.$isLogedIn">
+   <a mat-list-item routerLink="orders">Orders</a>
   <a mat-list-item routerLink="account">Account</a>
   <a mat-list-item (click)="logout()">Logout</a>
 </span>

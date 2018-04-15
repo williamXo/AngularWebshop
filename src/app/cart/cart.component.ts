@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {Product} from "../products/product";
 import {ProductService} from "../products/product.service";
+import {UserService} from "../user/user.service";
+import {OrderService} from "../orders/order.service";
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +14,7 @@ export class CartComponent implements OnInit {
 
   cartList: Product[] = new Array();
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, public userService: UserService, private orderService:OrderService) { }
 
   ngOnInit() {
 this.getShopppingCartList();
@@ -21,8 +23,8 @@ this.getShopppingCartList();
 
 
   public getShopppingCartList() {
-    let cart = sessionStorage.getItem('cart');
-    let productList = cart.split(',');
+    const cart = sessionStorage.getItem('cart');
+    const productList = cart.split(',');
 
      productList.map( entry => {
        this.getProduct(entry).subscribe(result => this.cartList.push(result));
@@ -37,6 +39,14 @@ this.getShopppingCartList();
   }
   public getProductList(): Observable<Product[]> {
     return this.productService.getAllProducts();
+  }
+
+  public placeOrder() {
+    if (this.userService.$isLogedIn) {
+    this.orderService.placeOrder(this.cartList);
+    }else {
+      alert("you need to be logged in to place an order");
+    }
   }
 
 }

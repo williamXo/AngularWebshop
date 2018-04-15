@@ -13,8 +13,8 @@ export class UserService {
   constructor(private api: ApiService, private authService: AuthorizationService, private router: Router) {
     this.restoreLogin();
   }
-  $isLogedIn= false;
-  $isAdmin= false;
+ public $isLogedIn= false;
+ public $isAdmin= false;
 
     public login(user: User, remember: boolean): void {
       this.authService.setAuthorization(user.username, user.password);
@@ -84,7 +84,7 @@ export class UserService {
             error =>{
                 alert('Het aanpassen is niet gelukt');
             }
-        )
+        );
     }
 
     private goHome() {

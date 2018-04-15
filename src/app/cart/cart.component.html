@@ -10,6 +10,10 @@
           <h4 mat-line>{{product.title}}</h4>
           <p mat-line> {{product.brand}} </p>
         </mat-list-item>
+        <mat-card-actions class="action-card">
+          <button mat-button class="product-button" (click)="placeOrder()">Place order</button>
+        </mat-card-actions>
+
       </mat-list>
 
     </mat-card>

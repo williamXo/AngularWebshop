@@ -1,0 +1,24 @@
+<div class="login-form" >
+
+
+  <mat-card class="login-card">
+    <mat-list>
+      <h3 mat-subheader>Orders</h3>
+      <button *ngIf="userService.$isAdmin" (click)="setAllOrders()" mat-icon-button>
+        check all orders
+      </button>
+      <mat-list-item *ngFor="let order of orderList">
+        <mat-icon mat-list-icon>label</mat-icon>
+        <h4 mat-line>{{ order.order_id }}</h4>
+        <p mat-line> {{ order.date }} </p>
+
+        <button mat-icon-button (click)="goToDetails(order.order_id)">
+          <mat-icon>info</mat-icon>
+        </button>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+
+  </mat-card>
+
+</div>

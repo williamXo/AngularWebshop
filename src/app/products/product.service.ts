@@ -19,4 +19,11 @@ export class ProductService {
   public getProductById(id): Observable<Product> {
     return this.api.get<Product>('products/' + id);
   }
+
+  public updateProductById(id: number, product: Product) {
+    this.api.put('products/update', product).subscribe(
+      result => alert('product updated'),
+      error => alert('something went wrong')
+     );
+  }
 }

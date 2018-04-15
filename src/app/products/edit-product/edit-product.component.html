@@ -1,0 +1,42 @@
+<div class="example-form" >
+
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm" >
+
+
+    <mat-card class="login-card">
+      <h2>{{title}}</h2>
+      <mat-form-field  class="example-full-width">
+        <input matInput placeholder="Title"   [(ngModel)]="product.title" name="title">
+      </mat-form-field>
+
+      <mat-form-field  class="example-full-width">
+        <input matInput placeholder="brand"   [(ngModel)]="product.brand" name="brand">
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Description" [(ngModel)]="product.description" name="description"> </textarea>
+      </mat-form-field>
+
+
+      <mat-form-field  class="example-full-width">
+        <input  matInput type="url" placeholder="image url"   [(ngModel)]="product.image" name="image">
+      </mat-form-field>
+
+
+
+      <mat-form-field  class="example-half-width">
+        <input matInput type="number" placeholder="price"   [(ngModel)]="product.price" name="price">
+      </mat-form-field>
+
+      <mat-form-field  class="example-half-width">
+        <input matInput  type="number" placeholder="stock"   [(ngModel)]="product.stock" name="stock">
+      </mat-form-field>
+
+
+      <button mat-raised-button class="example-full-width" type="submit">update product</button>
+
+    </mat-card>
+  </form>
+</div>
+

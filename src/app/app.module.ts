@@ -2,15 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { CartComponent } from './cart/cart.component';
-import { AddProductComponent } from './add-product/add-product.component';
-import { EditProductComponent } from './edit-product/edit-product.component';
+import { AddProductComponent } from './products/add-product/add-product.component';
+import { EditProductComponent } from './products/edit-product/edit-product.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProductComponent } from './products/product/product.component';
 
@@ -33,6 +34,11 @@ import {  MatButtonModule,
           MatInputModule,
           MatCheckboxModule,
           MatGridListModule} from '@angular/material';
+import { OrderComponent } from './orders/order/order.component';
+import { OrderDetailComponent } from './orders/order-detail/order-detail.component';
+import {OrderService} from "./orders/order.service";
+import { AdminComponent } from './admin/admin.component';
+import {Interceptor} from './Interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +50,10 @@ import {  MatButtonModule,
     AddProductComponent,
     EditProductComponent,
     MenuComponent,
-    ProductComponent
+    ProductComponent,
+    OrderComponent,
+    OrderDetailComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +79,10 @@ import {  MatButtonModule,
     AuthorizationService,
     ApiService,
     UserService,
-    ProductService
+    ProductService,
+    OrderService,
+    { provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true },
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

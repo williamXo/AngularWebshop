@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   user: User = new User();
   remember = false;
+  hide;
   constructor(private userService: UserService) { }
 
   ngOnInit() {
