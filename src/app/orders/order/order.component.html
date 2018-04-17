@@ -1,24 +1,32 @@
-<div class="login-form" >
+<div class="container bar-fixer">
+  <div class="py-5 text-center">
+    <h2>Orders</h2>
+    <button *ngIf="userService.$isAdmin" (click)="setAllOrders()" type="button" class="btn btn-primary btn-sm">check all orders</button>
+  </div>
+
+  <div class="row ">
+    <div class="order-md-1 ">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted" *ngIf="!this.allOrders" >Your orders:</span>
+        <span class="text-muted" *ngIf="this.allOrders">All orders: </span>
+      </h4>
+      <ul class="list-group mb-3">
+        <div *ngFor="let order of orderList">
+        <a (click)="goToDetails(order.order_id)" class="list-group-item list-group-item-action flex-column align-items-start">
+            <h5 class="mb-1">Order: {{order.order_id}}</h5>
+           <!-- <small class="text-muted">3 days ago</small> -->
+          <p class="mb-1">Order placed: {{order.date  | date:"dd/MM/yyyy"}} </p>
+        </a>
+        </div>
 
 
-  <mat-card class="login-card">
-    <mat-list>
-      <h3 mat-subheader>Orders</h3>
-      <button *ngIf="userService.$isAdmin" (click)="setAllOrders()" mat-icon-button>
-        check all orders
-      </button>
-      <mat-list-item *ngFor="let order of orderList">
-        <mat-icon mat-list-icon>label</mat-icon>
-        <h4 mat-line>{{ order.order_id }}</h4>
-        <p mat-line> {{ order.date }} </p>
+      </ul>
 
-        <button mat-icon-button (click)="goToDetails(order.order_id)">
-          <mat-icon>info</mat-icon>
-        </button>
-        <mat-divider></mat-divider>
-      </mat-list-item>
-    </mat-list>
 
-  </mat-card>
+    </div>
 
+  </div>
 </div>
+
+
+

@@ -1,16 +1,20 @@
-<div class="login-form" >
+<main role="main">
+  <div class="container bar-fixer">
 
-  <form (ngSubmit)="onSubmit()" #loginForm="ngForm" >
-  <mat-card class="login-card">
-    <mat-form-field>
-      <input matInput placeholder="Username"   [(ngModel)]="user.username" name="username">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" name="password" >
-      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-    </mat-form-field>
-    <mat-checkbox [(ngModel)]="remember" name="remember">Remember</mat-checkbox>
-    <button mat-raised-button class="product-button" type="submit">Login</button>
-  </mat-card>
-</form>
-</div>
+  <form class="form-signin" (ngSubmit)="onSubmit()">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputEmail" class="sr-only">Username</label>
+    <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus [(ngModel)]="user.username" name="username">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required [(ngModel)]="user.password" name="password">
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me" [(ngModel)]="remember" name="remember"> Remember me
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </form>
+
+  </div>
+
+</main>

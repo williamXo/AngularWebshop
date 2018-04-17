@@ -9,18 +9,21 @@ import {OrderComponent} from "./orders/order/order.component";
 import {OrderDetailComponent} from "./orders/order-detail/order-detail.component";
 import {AdminComponent} from "./admin/admin.component";
 import {EditProductComponent} from "./products/edit-product/edit-product.component";
+import {AddProductComponent} from "./products/add-product/add-product.component";
 
 
 const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'producten', component: ProductListComponent },
+    { path: '', component: ProductListComponent },
+    { path: 'products', component: ProductListComponent },
     { path: 'login', component: LoginComponent },
     { path: 'product', component: ProductComponent },
     { path: 'cart', component: CartComponent },
     { path: 'admin', component: AdminComponent },
     { path: 'orders', component: OrderComponent },
     { path: 'orders/:id', component: OrderDetailComponent },
-    { path: 'edit/:id', component: EditProductComponent }
+    { path: 'edit/:id', component: EditProductComponent },
+    { path: 'test', component: AddProductComponent },
+
 
 
 ];

@@ -13,6 +13,7 @@ import {OrderService} from "../orders/order.service";
 export class CartComponent implements OnInit {
 
   cartList: Product[] = new Array();
+  totalPrice: number = 0;
 
   constructor(private productService: ProductService, public userService: UserService, private orderService:OrderService) { }
 
@@ -27,7 +28,10 @@ this.getShopppingCartList();
     const productList = cart.split(',');
 
      productList.map( entry => {
-       this.getProduct(entry).subscribe(result => this.cartList.push(result));
+       this.getProduct(entry).subscribe(result => {
+         this.cartList.push(result);
+         this.totalPrice += result.price;
+       });
      });
 
     console.log(this.cartList);

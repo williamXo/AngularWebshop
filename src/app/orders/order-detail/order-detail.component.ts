@@ -1,9 +1,11 @@
+///<reference path="../../products/product.ts"/>
 import { Component, OnInit } from '@angular/core';
 import {Order} from "../order";
 import {Observable} from "rxjs/Observable";
 import {OrderService} from "../order.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Product} from "../../products/product";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-order-detail',
@@ -15,6 +17,7 @@ export class OrderDetailComponent implements OnInit {
   order:  Order = new Order();
   productList: Product[]  = new Array();
   id: number;
+  totalPrice = 0;
   constructor(private orderService: OrderService,  private router: ActivatedRoute) { }
 
   ngOnInit() {
@@ -22,8 +25,11 @@ export class OrderDetailComponent implements OnInit {
 
     this.getOrder().subscribe( result => {
       this.order = result;
-      this.productList = result.products
-      console.log(result);
+      this.productList = result.products;
+      let products = result.products.length;
+      for (let i = 0; i<products; i++) {
+        this.totalPrice += result.products[i].price;
+      }
     });
   }
 
@@ -33,4 +39,6 @@ export class OrderDetailComponent implements OnInit {
   public showInfo(info) {
     alert(info);
   }
+
 }
+

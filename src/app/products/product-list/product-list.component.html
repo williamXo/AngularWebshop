@@ -1,33 +1,26 @@
-<mat-grid-list  ngClass="product-list" class="product-list" cols="1" rowHeight="900">
+<main role="main">
 
-  <mat-grid-tile class="grid-tile" *ngFor="let product of productList">
+  <div class="album py-5 bg-light">
+    <div class="container bar-fixer">
 
-    <mat-card class="example-card">
-      <mat-card-header class="header-card">
-
-        <mat-card-title>{{product.title}}</mat-card-title>
-        <mat-card-subtitle>{{product.brand}}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="../../../assets/images/{{product.image}}" alt={{product.title}}>
-      <mat-card-content>
-        <p>
-        {{product.description}}
-        </p>
-      </mat-card-content>
-      <mat-card-actions class="action-card">
-<!---
-        <mat-form-field class="example-full-width">
-          <input type="number" matInput placeholder="Amount"  name="amount" >
-        </mat-form-field>
--->
-        <button mat-button class="product-button" (click)="addToCart(product.id, amount)">Add to cart</button>
-      </mat-card-actions>
-    </mat-card>
+      <div class="col-md-4" *ngFor="let product of productList">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" src="../../../assets/images/{{product.image}}" alt={{product.title}} data-holder-rendered="true">
+          <div class="card-body text-center" >
+            <p class="h3 card-title">{{product.title}}</p>
+            <p class="card-text h6">{{product.brand}}</p>
+            <p class="card-text">{{product.description}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-lg" (click)="addToCart(product.id, amount)">Add to cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-
-  </mat-grid-tile>
-
-
-</mat-grid-list>
+</main>
 

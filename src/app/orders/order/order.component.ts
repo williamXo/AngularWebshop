@@ -13,6 +13,7 @@ import {UserService} from '../../user/user.service';
 export class OrderComponent implements OnInit {
 
   orderList: Order[];
+  allOrders = false;
 
   constructor(private orderService: OrderService, private router: Router, public userService: UserService) { }
 
@@ -32,12 +33,12 @@ export class OrderComponent implements OnInit {
   }
   public goToDetails(id) {
     this.router.navigate(['orders/' + id]);
-
 }
 
 
   setAllOrders() {
     if (this.userService.$isAdmin) {
+      this.allOrders = true;
       this.orderService.getAllOrders().subscribe(result => this.orderList = result);
     }
   }

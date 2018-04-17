@@ -1,6 +1,7 @@
 
   <a mat-list-item routerLink="">Homepage</a>
-  <a mat-list-item routerLink="producten">Producten</a>
+  <a mat-list-item routerLink="products">Products</a>
+  <a mat-list-item routerLink="cart">Cart</a>
 
 <span *ngIf="!userService.$isLogedIn">
   <a mat-list-item routerLink="login">Login</a>
@@ -16,7 +17,6 @@
 
 <span *ngIf="userService.$isLogedIn">
    <a mat-list-item routerLink="orders">Orders</a>
-  <a mat-list-item routerLink="account">Account</a>
   <a mat-list-item (click)="logout()">Logout</a>
 </span>
 
