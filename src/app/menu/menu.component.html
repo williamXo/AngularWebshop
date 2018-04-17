@@ -1,0 +1,24 @@
+
+  <a mat-list-item routerLink="">Homepage</a>
+  <a mat-list-item routerLink="products">Products</a>
+  <a mat-list-item routerLink="cart">Cart</a>
+
+<span *ngIf="!userService.$isLogedIn">
+  <a mat-list-item routerLink="login">Login</a>
+</span>
+
+
+  <span *ngIf="userService.$isAdmin">
+
+  <a mat-list-item routerLink="admin">Admin Dashboard</a>
+
+</span>
+
+
+<span *ngIf="userService.$isLogedIn">
+   <a mat-list-item routerLink="orders">Orders</a>
+  <a mat-list-item (click)="logout()">Logout</a>
+</span>
+
+
+

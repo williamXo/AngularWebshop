@@ -1,0 +1,33 @@
+.mat-toolbar.mat-primary{
+  background: royalblue;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.example-icon{
+  cursor: pointer;
+}
+.side-content{
+  min-height: 300px;
+}
+.example-sidenav-container{
+  min-height: 570px;
+}
+@media (min-height: 600px) {
+  .example-sidenav-container{
+    min-height: 670px;
+  }
+
+}
+@media (min-height: 700px) {
+  .example-sidenav-container {
+    min-height: 770px;
+  }
+}
+@media (min-height: 800px) {
+  .example-sidenav-container {
+    min-height: 870px;
+  }
+}
+
+

@@ -1,0 +1,31 @@
+<div class="container bar-fixer">
+  <div class="py-5 text-center">
+    <h2>Order: {{order.order_id}}</h2>
+  </div>
+
+  <div class="row">
+    <div class="order-md-1">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Order placed: {{order.date  | date:"dd/MM/yyyy"}}</span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let product of productList">
+          <div>
+            <h6 class="my-0">{{product.title}}</h6>
+            <small class="text-muted">{{product.description}}</small>
+          </div>
+          <span class="text-muted">€ {{product.price}}</span>
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total</span>
+          <strong>€ {{totalPrice}}</strong>
+        </li>
+      </ul>
+
+
+    </div>
+
+  </div>
+</div>
+

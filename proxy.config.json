@@ -1,0 +1,12 @@
+{
+  "/api/*": {
+    "target":  {
+      "host": "167.99.215.253",
+      "protocol": "http:",
+      "port": 8080
+    },
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info"
+  }
+}

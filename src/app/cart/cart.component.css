@@ -1,0 +1,15 @@
+.action-card{
+  text-align: center;
+}
+
+
+.product-button{
+  width: 100%;
+  border: 3px solid #73AD21;
+
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 17px;
+  text-align: center;
+}
+
